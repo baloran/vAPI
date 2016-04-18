@@ -27,3 +27,6 @@ router.map({
 
 /* eslint-disable no-new */
 router.start(App, '#app')
+
+
+console.log('je suis:' + __DEV__);

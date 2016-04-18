@@ -1,4 +1,8 @@
-const webpack = require('webpack')
+const webpack = require('webpack');
+
+const dev = process.env.NODE_ENV === 'development' ? true : false;
+const debug = process.env.DEBUG === 'true' ? true : false;
+const production = process.env.NODE_ENV === 'production' ? true : false;
 
 module.exports = {
   entry: './src/main.js',
@@ -8,11 +12,17 @@ module.exports = {
     filename: 'build.js'
   },
   plugins: [
-   new webpack.ProvidePlugin({
-    'hljs': 'hljs',
-    '$': 'jquery',
-    '_': 'underscore'
-   })
+    new webpack.ProvidePlugin({
+      'hljs': 'hljs',
+      '$': 'jquery',
+      '_': 'underscore'
+    }),
+    new webpack.DefinePlugin({
+      __PROD__: production,
+      __DEV__: dev,
+      __DEBUG__: debug,
+      'process.env.NODE_ENV': dev ? '"development"' : '"production"'
+    })
   ],
   resolve: {
     alias: {

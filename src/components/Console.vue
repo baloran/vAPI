@@ -9,6 +9,7 @@
 <script>
 
 import hljs from 'hljs'
+import config from '../services/config'
 
 export default {
   data () {
@@ -23,9 +24,10 @@ export default {
   },
   methods: {
     fetch () {
+      console.log(config)
       const self = this
       this.$set('isDel', true)
-      this.$http({url: 'http://localhost:1337/' + this.$route.params.slug, method: 'GET'}).then(function (response) {
+      this.$http({url: config + this.$route.params.slug, method: 'GET'}).then(function (response) {
         let pretify = hljs.highlightAuto(JSON.stringify(response.data, undefined, 2)).value
         pretify = hljs.fixMarkup(pretify)
         self.$set('code', pretify)
