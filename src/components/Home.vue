@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <p>I love making, try things and innovate. Currently I try with my friends at <a href="https://wino.fr">wino</a> to help you to choose the good wines.</p>
-    <p>Looking for an intership for make great things with you.</p>
+
+    <p>I love making and trying things as well as innovating. I’m currently trying with my friends at <a href="https://wino.fr">Wino</a> to help you choosing good wines.</p>
+    <p>Looking for an internship to make great things with you.</p>
   </div>
 </template>
 
